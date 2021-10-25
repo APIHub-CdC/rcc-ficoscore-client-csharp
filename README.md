@@ -21,6 +21,24 @@ apt install mono-devel
 apt install mono-xbuild
 apt install wget
 ```
+### Opcional para generar PDF
+- Opcional para generar reporte pdf:  Java >= 1.6 
+Agregar metodo en ***IO.RccFicoscore.Test/Api/ReporteDeCrditoConFicoScoreApiTests.cs***
+
+```csharp
+ [Test]
+    public void generaPdfTest()
+    {
+        GeneraPdf g = new GeneraPdf();
+        String rutaJar = "/your_path/GeneraPDF.jar";
+        String fecha =  "'your_date'";
+        String json = "your_json_string";
+        String rutaPdf = "/your_path/your_pdf_name.pdf";
+        bool cadena = g.generaPdf(rutaJar,fecha,json,rutaPdf);
+        Assert.True(cadena);
+        
+    }
+```
 
 ## Guía de inicio
 
