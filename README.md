@@ -159,7 +159,7 @@ public void Init()
 [Test]
     public void GetReporteTest()
     {
-        var xfullReport = "true";
+        
 
         PersonaPeticion request = new PersonaPeticion();
         DomicilioPeticion domicilio = new DomicilioPeticion();
@@ -184,7 +184,7 @@ public void Init()
         request.Domicilio = domicilio;
 
 
-        var response =this.api.GetRC( this.xApiKey, this.username, this.password,xfullReport, request );
+        var response =this.api.GetRC( this.xApiKey, this.username, this.password, request );
         Assert.IsInstanceOf<Respuesta> (response, "response is Respuesta");
         Console.WriteLine(response.ToJson());
 

@@ -11,8 +11,8 @@ namespace IO.RccFicoscore.Api
     public interface IReporteDeCrditoConFicoScoreApi : IApiAccessor
     {
         #region Synchronous Operations
-        Respuesta GetRC (string xApiKey, string username, string password,string xfullReport, PersonaPeticion request);
-        ApiResponse<Respuesta> GetRCWithHttpInfo (string xApiKey, string username, string password,string xfullReport, PersonaPeticion request);
+        Respuesta GetRC (string xApiKey, string username, string password, PersonaPeticion request);
+        ApiResponse<Respuesta> GetRCWithHttpInfo (string xApiKey, string username, string password, PersonaPeticion request);
         #endregion Synchronous Operations
     }
     public partial class ReporteDeCrditoConFicoScoreApi : IReporteDeCrditoConFicoScoreApi
@@ -50,12 +50,12 @@ namespace IO.RccFicoscore.Api
         {
             this.Configuration.AddDefaultHeader(key, value);
         }
-        public Respuesta GetRC (string xApiKey, string username, string password,string xfullReport, PersonaPeticion request)
+        public Respuesta GetRC (string xApiKey, string username, string password, PersonaPeticion request)
         {
-             ApiResponse<Respuesta> localVarResponse = GetRCWithHttpInfo(xApiKey, username, password,xfullReport, request);
+             ApiResponse<Respuesta> localVarResponse = GetRCWithHttpInfo(xApiKey, username, password, request);
              return localVarResponse.Data;
         }
-        public ApiResponse< Respuesta > GetRCWithHttpInfo (string xApiKey, string username, string password,string xfullReport, PersonaPeticion request)
+        public ApiResponse< Respuesta > GetRCWithHttpInfo (string xApiKey, string username, string password, PersonaPeticion request)
         {
             if (xApiKey == null)
                 throw new ApiException(400, "Missing required parameter 'xApiKey' when calling ReporteDeCrditoPerApi->GetRC");
@@ -65,8 +65,7 @@ namespace IO.RccFicoscore.Api
                 throw new ApiException(400, "Missing required parameter 'password' when calling ReporteDeCrditoPerApi->GetRC");
             if (request == null)
                 throw new ApiException(400, "Missing required parameter 'request' when calling ReporteDeCrditoPerApi->GetRC");
-            if (xfullReport == null)
-                xfullReport ="true";
+         
 
             var localVarPath = "";
             var localVarPathParams = new Dictionary<String, String>();
@@ -86,7 +85,7 @@ namespace IO.RccFicoscore.Api
             if (localVarHttpHeaderAccept != null)
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
             if (xApiKey != null) localVarHeaderParams.Add("x-api-key", this.Configuration.ApiClient.ParameterToString(xApiKey));
-            if (xfullReport != null) localVarHeaderParams.Add("x-full-report", this.Configuration.ApiClient.ParameterToString(xfullReport));
+            
             if (username != null) localVarHeaderParams.Add("username", this.Configuration.ApiClient.ParameterToString(username));
             if (password != null) localVarHeaderParams.Add("password", this.Configuration.ApiClient.ParameterToString(password));
             if (request != null && request.GetType() != typeof(byte[]))
