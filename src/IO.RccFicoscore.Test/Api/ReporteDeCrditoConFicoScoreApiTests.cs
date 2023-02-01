@@ -32,7 +32,7 @@ namespace IO.RccFicoscore.Test
         [Test]
         public void GetReporteTest()
         {
-            var xfullReport = "true";
+            
 
             PersonaPeticion request = new PersonaPeticion();
             DomicilioPeticion domicilio = new DomicilioPeticion();
@@ -59,7 +59,7 @@ namespace IO.RccFicoscore.Test
             request.Domicilio = domicilio;
 
 
-            var response =this.api.GetRC( this.xApiKey, this.username, this.password,xfullReport, request );
+            var response =this.api.GetRC( this.xApiKey, this.username, this.password, request );
             Assert.IsInstanceOf<Respuesta> (response, "response is Respuesta");
             Console.WriteLine(response.ToJson());
 
